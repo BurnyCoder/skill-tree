@@ -9,6 +9,7 @@ An interactive web application for managing hierarchical skill trees that allows
 - **Hierarchical Skill Trees**: Build nested skill trees with skills containing sub-skills multiple levels deep
 - **Interactive Interface**: Add, edit, and delete skills through an intuitive GUI
 - **Progress Tracking**: Track progress with status markers (To Do, In Progress, Completed)
+- **Quick Status Update**: Change task status with a single click using the status buttons
 - **Visual Status Indicators**: Different colors indicate the status of each skill
 - **Local Storage**: Your skill tree data is saved locally in your browser
 
@@ -50,7 +51,9 @@ An interactive web application for managing hierarchical skill trees that allows
 3. **Edit a Skill**: Click the edit (pencil) icon to modify a skill's details
 4. **Delete a Skill**: Click the delete (trash) icon to remove a skill and all its children
 5. **Expand/Collapse**: Click on a skill or its chevron icon to expand or collapse its children
-6. **Change Status**: Edit a skill to update its status (To Do, In Progress, Completed)
+6. **Change Status**: 
+   - Click directly on the status buttons (◯, 🕒, ✓) to quickly change status
+   - Or edit a skill to update its status from the form
 
 ## Technologies Used
 
