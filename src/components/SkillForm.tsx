@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, ReactNode } from 'react';
 import { Skill, SkillStatus } from '@/types';
 import { useSkillTree } from '@/context/SkillTreeContext';
 
@@ -65,7 +65,7 @@ const SkillForm: FC<SkillFormProps> = ({ onClose }) => {
   };
 
   // Recursive function to create options with proper indentation
-  const renderSkillOptions = (skills: Skill[], level = 0) => {
+  const renderSkillOptions = (skills: Skill[], level = 0): ReactNode[] => {
     return skills.flatMap(skill => [
       <option key={skill.id} value={skill.id}>
         {'\u00A0'.repeat(level * 4)}{level > 0 ? '└─ ' : ''}{skill.title}
