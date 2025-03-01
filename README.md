@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skill Tree Manager
+
+An interactive web application for managing hierarchical skill trees that allows users to track their skills and progress in a visual, tree-like structure.
+
+![Skill Tree Manager Interface](./skill-tree.jpg)
+
+## Features
+
+- **Hierarchical Skill Trees**: Build nested skill trees with skills containing sub-skills multiple levels deep
+- **Interactive Interface**: Add, edit, and delete skills through an intuitive GUI
+- **Progress Tracking**: Track progress with status markers (To Do, In Progress, Completed)
+- **Visual Status Indicators**: Different colors indicate the status of each skill
+- **Local Storage**: Your skill tree data is saved locally in your browser
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18.0.0 or later
+- npm or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/skill-tree-manager.git
+   cd skill-tree-manager
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```
+   npm install
+   # or
+   yarn install
+   ```
 
-## Learn More
+3. Start the development server:
+   ```
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Add a Skill**: Click the "Add New Skill" button to create a root-level skill
+2. **Add a Sub-skill**: Click the "+" button on any skill to add a child skill
+3. **Edit a Skill**: Click the edit (pencil) icon to modify a skill's details
+4. **Delete a Skill**: Click the delete (trash) icon to remove a skill and all its children
+5. **Expand/Collapse**: Click on a skill or its chevron icon to expand or collapse its children
+6. **Change Status**: Edit a skill to update its status (To Do, In Progress, Completed)
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [UUID](https://github.com/uuidjs/uuid) - For generating unique IDs
+- [Lucide React](https://lucide.dev/) - Icon library
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- Built with [Next.js](https://nextjs.org/)
+- Icons by [Lucide React](https://lucide.dev/)
