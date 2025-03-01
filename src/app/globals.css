@@ -8,6 +8,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,4 +24,49 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom styling for skill items */
+.skill-item-transition {
+  transition: all 0.3s ease;
+}
+
+.todo-item {
+  --border-color: #6B7280;
+}
+
+.in-progress-item {
+  --border-color: #3B82F6;
+}
+
+.completed-item {
+  --border-color: #10B981;
+}
+
+/* Status indicator animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+  animation-play-state: paused;
+}
+
+.status-indicator:hover {
+  animation-play-state: running;
 }
