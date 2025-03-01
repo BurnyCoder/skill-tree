@@ -17,13 +17,13 @@ const SkillItem: FC<SkillItemProps> = ({ skill, level }) => {
   const getStatusStyles = (status: SkillStatus) => {
     switch (status) {
       case SkillStatus.TODO:
-        return 'bg-gray-100 border-l-4 border-gray-500 todo-item';
+        return 'bg-gray-700 border-l-4 border-gray-500 todo-item';
       case SkillStatus.IN_PROGRESS:
-        return 'bg-blue-100 border-l-4 border-blue-500 in-progress-item';
+        return 'bg-indigo-800 border-l-4 border-indigo-500 in-progress-item';
       case SkillStatus.COMPLETED:
-        return 'bg-green-100 border-l-4 border-green-500 completed-item';
+        return 'bg-green-800 border-l-4 border-green-500 completed-item';
       default:
-        return 'bg-gray-100 border-l-4 border-gray-500 todo-item';
+        return 'bg-gray-700 border-l-4 border-gray-500 todo-item';
     }
   };
 
@@ -57,13 +57,13 @@ const SkillItem: FC<SkillItemProps> = ({ skill, level }) => {
   const getStatusIcon = (status: SkillStatus) => {
     switch (status) {
       case SkillStatus.TODO:
-        return <IconWrapper icon={<Circle size={16} className="text-gray-600" />} />;
+        return <IconWrapper icon={<Circle size={16} className="text-gray-400" />} />;
       case SkillStatus.IN_PROGRESS:
-        return <IconWrapper icon={<Clock size={16} className="text-blue-600" />} />;
+        return <IconWrapper icon={<Clock size={16} className="text-indigo-400" />} />;
       case SkillStatus.COMPLETED:
-        return <IconWrapper icon={<CheckCircle size={16} className="text-green-600" />} />;
+        return <IconWrapper icon={<CheckCircle size={16} className="text-green-400" />} />;
       default:
-        return <IconWrapper icon={<Circle size={16} className="text-gray-600" />} />;
+        return <IconWrapper icon={<Circle size={16} className="text-gray-400" />} />;
     }
   };
 
@@ -71,25 +71,25 @@ const SkillItem: FC<SkillItemProps> = ({ skill, level }) => {
     return (
       <div className="status-buttons flex space-x-1 mr-2" onClick={e => e.stopPropagation()}>
         <button 
-          className={`p-1 rounded-full transition-all duration-200 ${skill.status === SkillStatus.TODO ? 'bg-gray-300 scale-110' : 'bg-gray-100 opacity-60'}`}
+          className={`p-1 rounded-full transition-all duration-200 ${skill.status === SkillStatus.TODO ? 'bg-gray-600 scale-110' : 'bg-gray-700 opacity-60'}`}
           onClick={(e) => changeStatus(SkillStatus.TODO, e)}
           title="Mark as To Do"
         >
-          <IconWrapper icon={<Circle size={16} className="text-gray-600" />} />
+          <IconWrapper icon={<Circle size={16} className="text-gray-300" />} />
         </button>
         <button 
-          className={`p-1 rounded-full transition-all duration-200 ${skill.status === SkillStatus.IN_PROGRESS ? 'bg-blue-300 scale-110' : 'bg-gray-100 opacity-60'}`}
+          className={`p-1 rounded-full transition-all duration-200 ${skill.status === SkillStatus.IN_PROGRESS ? 'bg-indigo-600 scale-110' : 'bg-gray-700 opacity-60'}`}
           onClick={(e) => changeStatus(SkillStatus.IN_PROGRESS, e)}
           title="Mark as In Progress"
         >
-          <IconWrapper icon={<Clock size={16} className="text-blue-600" />} />
+          <IconWrapper icon={<Clock size={16} className="text-indigo-300" />} />
         </button>
         <button 
-          className={`p-1 rounded-full transition-all duration-200 ${skill.status === SkillStatus.COMPLETED ? 'bg-green-300 scale-110' : 'bg-gray-100 opacity-60'}`}
+          className={`p-1 rounded-full transition-all duration-200 ${skill.status === SkillStatus.COMPLETED ? 'bg-green-600 scale-110' : 'bg-gray-700 opacity-60'}`}
           onClick={(e) => changeStatus(SkillStatus.COMPLETED, e)}
           title="Mark as Completed"
         >
-          <IconWrapper icon={<CheckCircle size={16} className="text-green-600" />} />
+          <IconWrapper icon={<CheckCircle size={16} className="text-green-300" />} />
         </button>
       </div>
     );
@@ -99,7 +99,10 @@ const SkillItem: FC<SkillItemProps> = ({ skill, level }) => {
     <div className="select-none" suppressHydrationWarning>
       <div 
         className={`flex items-center p-2 rounded-md mb-1 cursor-pointer hover:bg-opacity-80 skill-item-transition ${getStatusStyles(skill.status)}`}
-        style={{ marginLeft: `${level * 20}px` }}
+        style={{ 
+          marginLeft: `${level * 20}px`,
+          ...(skill.status === SkillStatus.TODO ? { backgroundColor: '#374151' } : {})
+        }}
         onClick={handleToggleExpand}
       >
         <div className="mr-2">
