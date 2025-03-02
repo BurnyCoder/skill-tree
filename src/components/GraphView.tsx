@@ -151,6 +151,45 @@ const GraphView: FC = () => {
                         linkDirectionalArrowRelPos={1}
                         cooldownTicks={100}
                         onNodeClick={handleNodeClick}
+                        nodeCanvasObject={(node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+                            // Draw the node circle
+                            const label = node.name;
+                            const fontSize = 12/globalScale;
+                            const nodeSize = Math.max(5, (node.val || 1) * 4);
+                            
+                            // Draw the circle for the node
+                            ctx.beginPath();
+                            ctx.arc(node.x, node.y, nodeSize, 0, 2 * Math.PI);
+                            ctx.fillStyle = getNodeColor(node);
+                            ctx.fill();
+                            
+                            // Draw the text label
+                            ctx.font = `${fontSize}px Sans-Serif`;
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillStyle = '#ffffff';
+                            
+                            // Add a small shadow for better readability
+                            ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+                            ctx.shadowBlur = 4;
+                            ctx.shadowOffsetX = 1;
+                            ctx.shadowOffsetY = 1;
+                            
+                            // Position the text below the node
+                            ctx.fillText(label, node.x, node.y + nodeSize + fontSize);
+                            
+                            // Reset shadow effect
+                            ctx.shadowColor = 'transparent';
+                            ctx.shadowBlur = 0;
+                        }}
+                        nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D) => {
+                            // Increase the pointer area to include the label
+                            const nodeSize = Math.max(5, (node.val || 1) * 4);
+                            ctx.beginPath();
+                            ctx.arc(node.x, node.y, nodeSize + 8, 0, 2 * Math.PI);
+                            ctx.fillStyle = color;
+                            ctx.fill();
+                        }}
                     />
                 </ClientOnly>
             )}
