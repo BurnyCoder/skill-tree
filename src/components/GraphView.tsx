@@ -11,7 +11,7 @@ const ForceGraph2D = dynamic(
     () => import('react-force-graph-2d'), 
     {
         ssr: false,
-        loading: () => <div className="flex justify-center items-center h-96">Loading graph...</div>
+        loading: () => <div className="flex justify-center items-center h-96 text-gray-300">Loading graph...</div>
     }
 );
 
@@ -41,7 +41,7 @@ const ClientOnly: FC<{ children: React.ReactNode }> = ({ children }) => {
     }, []);
     
     if (!hasMounted) {
-        return <div className="flex justify-center items-center h-96">Loading graph view...</div>;
+        return <div className="flex justify-center items-center h-96 text-gray-300">Loading graph view...</div>;
     }
     
     return <>{children}</>;
@@ -111,20 +111,30 @@ const GraphView: FC = () => {
     const getNodeColor = (node: any) => {
         switch (node.status) {
             case 'To Do':
-                return '#d1d5db'; // gray-300
+                return '#6b7280'; // gray-500 for dark mode
             case 'In Progress':
-                return '#93c5fd'; // blue-300
+                return '#3b82f6'; // blue-500 for dark mode
             case 'Completed':
-                return '#86efac'; // green-300
+                return '#10b981'; // green-500 for dark mode
             default:
-                return '#f3f4f6'; // gray-100
+                return '#4b5563'; // gray-600 for dark mode
         }
     };
 
+    // Get link color for dark mode
+    const getLinkColor = () => {
+        return 'rgba(156, 163, 175, 0.5)'; // gray-400 with opacity for dark mode
+    };
+
+    // Get background color for the canvas
+    const getBackgroundColor = () => {
+        return '#111827'; // gray-900 for dark mode background
+    };
+
     return (
-        <div className="bg-white rounded-lg shadow-lg p-6 h-full">
+        <div className="bg-gray-900 rounded-lg shadow-xl border border-gray-700 p-6 h-full">
             {graphData.nodes.length === 0 ? (
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-gray-400">
                     <p>No skills to display in the graph</p>
                 </div>
             ) : (
@@ -135,6 +145,8 @@ const GraphView: FC = () => {
                         graphData={graphData}
                         nodeLabel={(node: any) => `${node.name} (${node.status})`}
                         nodeColor={getNodeColor}
+                        linkColor={getLinkColor}
+                        backgroundColor={getBackgroundColor}
                         linkDirectionalArrowLength={3.5}
                         linkDirectionalArrowRelPos={1}
                         cooldownTicks={100}
