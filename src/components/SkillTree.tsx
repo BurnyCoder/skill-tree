@@ -45,13 +45,13 @@ const SkillTree: FC = () => {
         <h1 className="text-2xl font-bold">Interactive Skill Tree</h1>
         <ClientOnly>
           <div className="flex gap-2">
-            <div className="flex border border-gray-300 rounded-md overflow-hidden">
+            <div className="flex border border-gray-600 rounded-md overflow-hidden">
               <button
                 onClick={() => setViewMode(ViewMode.LIST)}
                 className={`flex items-center gap-1 px-3 py-2 ${
                   viewMode === ViewMode.LIST 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-blue-700 text-white' 
+                    : 'bg-gray-800 text-gray-200 hover:bg-gray-700'
                 }`}
               >
                 <IconWrapper icon={<List size={16} />} />
@@ -61,8 +61,8 @@ const SkillTree: FC = () => {
                 onClick={() => setViewMode(ViewMode.GRAPH)}
                 className={`flex items-center gap-1 px-3 py-2 ${
                   viewMode === ViewMode.GRAPH 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-blue-700 text-white' 
+                    : 'bg-gray-800 text-gray-200 hover:bg-gray-700'
                 }`}
               >
                 <IconWrapper icon={<Network size={16} />} />
@@ -71,7 +71,7 @@ const SkillTree: FC = () => {
             </div>
             <button
               onClick={() => setIsFormOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800"
             >
               <IconWrapper icon={<PlusCircle size={18} />} />
               <span>Add New Skill</span>
@@ -83,13 +83,13 @@ const SkillTree: FC = () => {
       {isMounted && (
         <>
           {viewMode === ViewMode.LIST ? (
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-gray-900 rounded-lg shadow-xl border border-gray-700 p-6">
               {state.skills.length === 0 ? (
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-gray-400">
                   <p className="mb-4">No skills added yet</p>
                   <button
                     onClick={() => setIsFormOpen(true)}
-                    className="text-blue-600 hover:underline"
+                    className="text-blue-400 hover:underline"
                   >
                     Add your first skill
                   </button>
