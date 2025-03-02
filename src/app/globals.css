@@ -13,22 +13,29 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark mode styles applied directly without media query */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --foreground-rgb: 237, 237, 237;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 30, 30, 30;
+}
 
-  /* Force dark mode colors for todo items */
-  [class*="todo-item"] {
-    background-color: #374151 !important;
-    border-color: #6B7280 !important;
-  }
+/* Force dark mode colors for items */
+.dark [class*="todo-item"] {
+  background-color: #374151 !important;
+  border-color: #6B7280 !important;
+}
 
-  [class*="in-progress-item"] {
-    background-color: #4338ca !important; /* indigo-800 */
-    border-color: #6366f1 !important; /* indigo-500 */
-  }
+.dark [class*="in-progress-item"] {
+  background-color: #4338ca !important; /* indigo-800 */
+  border-color: #6366f1 !important; /* indigo-500 */
+}
+
+.dark [class*="completed-item"] {
+  background-color: #065f46 !important; /* green-800 */
+  border-color: #34d399 !important; /* green-400 */
 }
 
 body {
@@ -46,21 +53,20 @@ body {
   --border-color: #6B7280;
 }
 
-@media (prefers-color-scheme: dark) {
-  .todo-item {
-    --border-color: #6B7280;
-    background-color: #374151 !important; /* gray-700 for dark mode */
-  }
+/* Dark mode styles for specific items without media query */
+.dark .todo-item {
+  --border-color: #6B7280;
+  background-color: #374151 !important; /* gray-700 for dark mode */
+}
   
-  .in-progress-item {
-    --border-color: #6366f1; /* indigo-500 */
-    background-color: #4338ca !important; /* indigo-800 for dark mode */
-  }
+.dark .in-progress-item {
+  --border-color: #6366f1; /* indigo-500 */
+  background-color: #4338ca !important; /* indigo-800 for dark mode */
+}
   
-  .completed-item {
-    --border-color: #34d399;
-    background-color: #065f46 !important; /* green-800 for dark mode */
-  }
+.dark .completed-item {
+  --border-color: #34d399;
+  background-color: #065f46 !important; /* green-800 for dark mode */
 }
 
 .in-progress-item {

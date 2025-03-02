@@ -4,6 +4,8 @@ An interactive web application for managing hierarchical skill trees that allows
 
 ![Skill Tree Manager Interface](./skill-tree.jpg)
 
+![Skill Tree Manager Graph View](./skill-tree-2.jpg)
+
 ## Features
 
 - **Hierarchical Skill Trees**: Build nested skill trees with skills containing sub-skills multiple levels deep
