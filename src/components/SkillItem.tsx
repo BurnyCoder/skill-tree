@@ -109,8 +109,8 @@ const SkillItem: FC<SkillItemProps> = ({ skill, level }) => {
           {skill.children.length > 0 && (
             <button onClick={handleToggleExpand} className="mr-1">
               {skill.isExpanded ? 
-                <IconWrapper icon={<ChevronDown size={16} />} /> : 
-                <IconWrapper icon={<ChevronRight size={16} />} />
+                <IconWrapper icon={<ChevronDown size={16} className="text-gray-300" />} /> : 
+                <IconWrapper icon={<ChevronRight size={16} className="text-gray-300" />} />
               }
             </button>
           )}
@@ -126,21 +126,21 @@ const SkillItem: FC<SkillItemProps> = ({ skill, level }) => {
         <div className="flex space-x-1">
           <button 
             onClick={handleAddSubskill}
-            className="p-1 text-gray-600 hover:text-blue-600 hover:bg-blue-100 rounded"
+            className="p-1 text-gray-300 hover:text-blue-600 hover:bg-blue-100 rounded"
             title="Add Sub-skill"
           >
             <IconWrapper icon={<Plus size={16} />} />
           </button>
           <button 
             onClick={handleEditSkill}
-            className="p-1 text-gray-600 hover:text-yellow-600 hover:bg-yellow-100 rounded"
+            className="p-1 text-gray-300 hover:text-yellow-600 hover:bg-yellow-100 rounded"
             title="Edit Skill"
           >
             <IconWrapper icon={<Edit size={16} />} />
           </button>
           <button 
             onClick={handleDeleteSkill}
-            className="p-1 text-gray-600 hover:text-red-600 hover:bg-red-100 rounded"
+            className="p-1 text-gray-300 hover:text-red-600 hover:bg-red-100 rounded"
             title="Delete Skill"
           >
             <IconWrapper icon={<Trash size={16} />} />

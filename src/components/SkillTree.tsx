@@ -54,7 +54,7 @@ const SkillTree: FC = () => {
                     : 'bg-gray-800 text-gray-200 hover:bg-gray-700'
                 }`}
               >
-                <IconWrapper icon={<List size={16} />} />
+                <IconWrapper icon={<List size={16} className="text-white" />} />
                 <span>List</span>
               </button>
               <button
@@ -65,7 +65,7 @@ const SkillTree: FC = () => {
                     : 'bg-gray-800 text-gray-200 hover:bg-gray-700'
                 }`}
               >
-                <IconWrapper icon={<Network size={16} />} />
+                <IconWrapper icon={<Network size={16} className="text-white" />} />
                 <span>Graph</span>
               </button>
             </div>
@@ -73,7 +73,7 @@ const SkillTree: FC = () => {
               onClick={() => setIsFormOpen(true)}
               className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800"
             >
-              <IconWrapper icon={<PlusCircle size={18} />} />
+              <IconWrapper icon={<PlusCircle size={18} className="text-white" />} />
               <span>Add New Skill</span>
             </button>
           </div>
